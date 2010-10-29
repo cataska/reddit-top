@@ -194,6 +194,7 @@ class DisplayMode(object):
             try:
                 story = stories[idx + self.interface.start_pos]
                 story.title = html_unescape(story.title)
+                story.title = story.title.replace('\r\n', '')
                 if not interface.can_utf8:
                     story.title = story.title.encode('ascii', 'replace')
                 self.do_display(story)
